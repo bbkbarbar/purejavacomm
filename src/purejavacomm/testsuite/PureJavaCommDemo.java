@@ -74,7 +74,8 @@ public class PureJavaCommDemo {
 									byte b = buffer[i];
 									linebuf[inp++] = b;
 									if (b == '\n') {
-										//System.err.print("Received: " + new String(linebuf, 0, inp));
+										//Show received data
+										System.err.print("" + new String(linebuf, 0, inp));
 										int s = 0;
 										int j;
 										for (j = 0; j < inp - 2; j++)
@@ -82,10 +83,10 @@ public class PureJavaCommDemo {
 										byte cb = (byte) (32 + (s & 63));
 										okcnt++;
 										if (cb != linebuf[j]) {
-											System.out.println("check sum failure");
+											//System.out.println("check sum failure");
 											errcnt++;
 										}
-										System.out.println("msg "+inp+" ok " + okcnt + " err " + errcnt);
+										//System.out.println("msg "+inp+" ok " + okcnt + " err " + errcnt);
 										inp = 0;
 									}
 								}
